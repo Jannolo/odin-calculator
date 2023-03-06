@@ -1,15 +1,19 @@
-button#number {
-    background-color: rgb(56, 206, 36);
-}
-
 body {
     display: flex;
-    justify-content: center;
-    align-content: center;
+    flex-direction: column;
+    align-items: center;
+
+    background-color: seagreen;
+}
+
+h1 {
+    color: white;
 }
 
 div#calc {
-    border: 1px black solid;
+    border: 1px white solid;
+
+    background-color: darkgrey;
 
     width: 400px;
     height: 700px;
@@ -20,7 +24,7 @@ div#calc {
 }
 
 div#display {
-    border: 0.5px solid black;
+    border: 0.5px solid white;
     width: 90%;
     flex: 1 0 auto;
     max-height: 20%;
@@ -29,19 +33,32 @@ div#display {
     justify-content: flex-end;
 
     font-size: 3rem;
+
+    background-color: white;
 }
 
 div.row {
     display: flex;
+    justify-content: right;
     flex: 1 0 auto;
     width: 90%;
 }
 
 button#clear {
     flex: 3 0 auto;
+    max-width: 75%;
 }
 
 div.row > button {
     flex: 1 0 auto;
+    max-width: 25%;
+
+    background-color: darkgrey;
+    color: white;
+    border: 1px white solid;
+
+    font-size: 18px;
+    font-weight: 300;
+
 }
 
