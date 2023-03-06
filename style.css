@@ -4,6 +4,8 @@ body {
     align-items: center;
 
     background-color: seagreen;
+
+    max-height: 100vh;
 }
 
 h1 {
