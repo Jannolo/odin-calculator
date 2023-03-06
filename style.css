@@ -1,0 +1,47 @@
+button#number {
+    background-color: rgb(56, 206, 36);
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+div#calc {
+    border: 1px black solid;
+
+    width: 400px;
+    height: 700px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+div#display {
+    border: 0.5px solid black;
+    width: 90%;
+    flex: 1 0 auto;
+    max-height: 20%;
+
+    display: flex;
+    justify-content: flex-end;
+
+    font-size: 3rem;
+}
+
+div.row {
+    display: flex;
+    flex: 1 0 auto;
+    width: 90%;
+}
+
+button#clear {
+    flex: 3 0 auto;
+}
+
+div.row > button {
+    flex: 1 0 auto;
+}
+
