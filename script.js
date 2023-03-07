@@ -45,6 +45,7 @@ let concat = false;
 buttons.forEach(button => button.addEventListener('click', function (e) {
     console.log('a = ' + a);
     console.log('displayString = ' + displayString);
+    
     if (equal && (parseFloat(button.textContent))) {
         a = '';
         b = '';
@@ -58,7 +59,13 @@ buttons.forEach(button => button.addEventListener('click', function (e) {
         concat = false;
     }
 
-    if (button.textContent == '=') {
+    if(button.textContent == 'Clear') {
+        a = '';
+        b = '';
+        operand = '';
+        displayString = '';
+        displayRefresh();
+    } else if (button.textContent == '=') {
         b = displayString
         console.log(operand + a + b);
         let res = operate(operand, a, b);
