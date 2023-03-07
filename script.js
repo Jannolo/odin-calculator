@@ -69,7 +69,7 @@ buttons.forEach(button => button.addEventListener('click', function (e) {
         b = displayString
         console.log(operand + a + b);
         let res = operate(operand, a, b);
-        displayString = res % 2 == 0 ? res : res.toFixed(2);
+        displayString = res % 1 == 0 ? res : res.toFixed(2);
         displayRefresh();
         equal = true;
     } else if (button.textContent == '.') {
@@ -88,7 +88,7 @@ buttons.forEach(button => button.addEventListener('click', function (e) {
             b = displayString
             console.log(operand + a + b);
             let res = operate(operand, a, b);
-            displayString = res % 2 == 0 ? res : res.toFixed(2);
+            displayString = res % 1 == 0 ? res : res.toFixed(2);
             a = displayString;
             operand = button.textContent;
             displayRefresh();
