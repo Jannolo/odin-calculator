@@ -55,7 +55,8 @@ buttons.forEach(button => button.addEventListener('click', function (e) {
     if (button.textContent == '=') {
         b = displayString
         console.log(operand + a + b);
-        displayString = operate(operand, a, b);
+        let res = operate(operand, a, b);
+        displayString = res % 2 == 0 ? res : res.toFixed(2);
         displayRefresh();
         equal = true;
     } else if (button.textContent == '.') {
