@@ -19,17 +19,17 @@ function div(a, b) {
 function operate(op, a, b) {
     switch (op) {
         case '+':
-            return add(parseInt(a), parseInt(b));
+            return add(parseFloat(a), parseFloat(b));
             break;
         case '-':
-            return subtract(parseInt(a), parseInt(b));
+            return subtract(parseFloat(a), parseFloat(b));
             break;
         case '*':
             console.log('I get to operate mul.')
-            return mul(parseInt(a), parseInt(b));
+            return mul(parseFloat(a), parseFloat(b));
             break;
         case '/':
-            return div(parseInt(a), parseInt(b));
+            return div(parseFloat(a), parseFloat(b));
             break;
     }
 }
@@ -44,7 +44,7 @@ let equal = false;
 buttons.forEach(button => button.addEventListener('click', function (e) {
     console.log('a = ' +a);
     console.log('displayString = ' + displayString);
-    if (equal && (parseInt(button.textContent))) {
+    if (equal && (parseFloat(button.textContent))) {
         a = '';
         b = '';
         operand = '';
@@ -58,16 +58,20 @@ buttons.forEach(button => button.addEventListener('click', function (e) {
         displayString = operate(operand, a, b);
         displayRefresh();
         equal = true;
-    } else if (equal && (!parseInt(button.textContent))) {
-        a = parseInt(displayString);
+    } else if (button.textContent == '.') {
+        displayString = displayString.concat('.');
+        displayRefresh();
+    } 
+    else if (equal && (!parseFloat(button.textContent))) {
+        a = parseFloat(displayString);
         b = '';
         operand = button.textContent;
         displayString = '';
         equal = false;
         console.log('I get here');
-    } else if (!parseInt(button.textContent) && button.textContent != '0') {
+    } else if (!parseFloat(button.textContent) && button.textContent != '0') {
         operand = button.textContent;
-        a = parseInt(displayString);
+        a = parseFloat(displayString);
         displayString = '';
         displayRefresh();
     } else {
