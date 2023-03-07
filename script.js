@@ -8,7 +8,7 @@ function subtract(a, b) {
 }
 
 function mul(a, b) {
-    
+
     return a * b;
 }
 
@@ -38,11 +38,12 @@ let buttons = document.querySelectorAll('button');
 let display = document.querySelector('#display');
 let displayString = '';
 let operand = '';
-let a, b;
+let a = '', b = '';
 let equal = false;
+let concat = false;
 
 buttons.forEach(button => button.addEventListener('click', function (e) {
-    console.log('a = ' +a);
+    console.log('a = ' + a);
     console.log('displayString = ' + displayString);
     if (equal && (parseFloat(button.textContent))) {
         a = '';
@@ -50,7 +51,12 @@ buttons.forEach(button => button.addEventListener('click', function (e) {
         operand = '';
         displayString = '';
         equal = false;
-    } 
+    }
+    if (concat && (parseFloat(button.textContent))) {
+        b = '';
+        displayString = '';
+        concat = false;
+    }
 
     if (button.textContent == '=') {
         b = displayString
@@ -62,7 +68,7 @@ buttons.forEach(button => button.addEventListener('click', function (e) {
     } else if (button.textContent == '.') {
         displayString = displayString.concat('.');
         displayRefresh();
-    } 
+    }
     else if (equal && (!parseFloat(button.textContent))) {
         a = parseFloat(displayString);
         b = '';
@@ -71,10 +77,21 @@ buttons.forEach(button => button.addEventListener('click', function (e) {
         equal = false;
         console.log('I get here');
     } else if (!parseFloat(button.textContent) && button.textContent != '0') {
-        operand = button.textContent;
-        a = parseFloat(displayString);
-        displayString = '';
-        displayRefresh();
+        if (a != '') {
+            b = displayString
+            console.log(operand + a + b);
+            let res = operate(operand, a, b);
+            displayString = res % 2 == 0 ? res : res.toFixed(2);
+            a = displayString;
+            operand = button.textContent;
+            displayRefresh();
+            concat = true;
+        } else {
+            operand = button.textContent;
+            a = parseFloat(displayString);
+            displayString = '';
+            displayRefresh();
+        }
     } else {
         displayString = displayString.concat(button.textContent);
         displayRefresh();
@@ -84,7 +101,7 @@ buttons.forEach(button => button.addEventListener('click', function (e) {
 let displayPara = document.createElement('p');
 
 function displayRefresh() {
-    
+
     displayPara.textContent = displayString;
 
     display.appendChild(displayPara);
