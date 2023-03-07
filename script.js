@@ -43,28 +43,28 @@ let equal = false;
 
 buttons.forEach(button => button.addEventListener('click', function (e) {
     console.log('a = ' +a);
-    // if (equal && (parseInt(button.textContent))) {
-    //     a = '';
-    //     b = '';
-    //     operand = '';
-    //     displayString = '';
-    //     equal = false;
-    // } else 
-    if (equal && (!parseInt(button.textContent))) {
+    console.log('displayString = ' + displayString);
+    if (equal && (parseInt(button.textContent))) {
+        a = '';
         b = '';
-        operand = button.textContent;
+        operand = '';
         displayString = '';
         equal = false;
-        console.log('I get here');
-    }
+    } 
 
     if (button.textContent == '=') {
         b = displayString
         console.log(operand + a + b);
         displayString = operate(operand, a, b);
-        a = displayString;
         displayRefresh();
         equal = true;
+    } else if (equal && (!parseInt(button.textContent))) {
+        a = parseInt(displayString);
+        b = '';
+        operand = button.textContent;
+        displayString = '';
+        equal = false;
+        console.log('I get here');
     } else if (!parseInt(button.textContent) && button.textContent != '0') {
         operand = button.textContent;
         a = parseInt(displayString);
