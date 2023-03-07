@@ -13,6 +13,9 @@ function mul(a, b) {
 }
 
 function div(a, b) {
+    if(b == 0) {
+        return "Did you pass 4th grade bc dividing by 0 is not possible.";
+    }
     return a / b;
 }
 
@@ -69,7 +72,7 @@ buttons.forEach(button => button.addEventListener('click', function (e) {
         b = displayString
         console.log(operand + a + b);
         let res = operate(operand, a, b);
-        displayString = res % 1 == 0 ? res : res.toFixed(2);
+        displayString = res % 1 == 0 || !parseFloat(res) ? res : res.toFixed(2);
         displayRefresh();
         equal = true;
     } else if (button.textContent == '.') {

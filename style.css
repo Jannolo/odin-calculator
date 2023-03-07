@@ -30,7 +30,7 @@ div#display {
     width: 90%;
     flex: 1 0 auto;
     min-height: 18px;
-    max-height: 20%;
+    max-height: fit-content;
 
     display: flex;
     justify-content: flex-end;
@@ -51,7 +51,7 @@ button#clear {
     flex: 3 0 auto;
     max-width: 75%;
 }
-
+div#empty,
 div.row > button {
     flex: 1 0 auto;
     max-width: 25%;
