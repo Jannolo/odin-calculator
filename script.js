@@ -65,7 +65,7 @@ buttons.forEach(button => button.addEventListener('click', function (e) {
         a = displayString;
         displayRefresh();
         equal = true;
-    } else if (!parseInt(button.textContent)) {
+    } else if (!parseInt(button.textContent) && button.textContent != '0') {
         operand = button.textContent;
         a = parseInt(displayString);
         displayString = '';
